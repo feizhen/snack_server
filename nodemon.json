@@ -2,6 +2,7 @@
   "watch": [
     "src/**/*.js"
   ],
+  "ignore": ["*.spec.js"],
   "env": {
     "NODE_ENV": "development"
   },
