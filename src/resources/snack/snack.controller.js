@@ -1,10 +1,16 @@
+import db from "../../utils/db";
 /**
  * get all snacks from db
  * @param {Request} req
  * @param {Response} res
  */
 export const getSnack = async (req, res) => {
-  res.send({ data: "snacks" });
+  try {
+    const snacks = await db.getSnacks();
+    res.json({ result: { data: snacks, total: snacks.length } });
+  } catch (error) {
+    res.status(500).send();
+  }
 };
 
 /**
