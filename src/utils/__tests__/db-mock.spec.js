@@ -22,4 +22,6 @@ describe("generateDataset test", () => {
       });
     });
   });
+
+  it("getSnacks function return correct data", () => {});
 });

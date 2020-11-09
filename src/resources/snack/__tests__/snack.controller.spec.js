@@ -19,7 +19,18 @@ describe("snack controller test", () => {
     expect(result.data).toEqual(dataFromDb);
   });
 
-  // it("getSnack function will return some snacks by filter params", async () => {});
+  it("getSnack function will return some snacks by filter params", async () => {
+    const req = {
+      page: 1,
+      pageSize: 10,
+    };
+    const res = {
+      json: jest.fn(),
+    };
+
+    await snackController.getSnack(req, res);
+    expect(res.json).toHaveBeenCalledTimes(1);
+  });
 
   // it("getSnack function will return empty array if not match filter params", async () => {});
 

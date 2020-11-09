@@ -1,4 +1,5 @@
 import _ from "lodash";
+import { pagination } from "./pagination";
 
 // 数据结构设计
 // {
@@ -75,9 +76,6 @@ export function generateDataset(count = 20) {
   return result;
 }
 
-// TODO
-export function pagination(arr, page, pageSize) {}
-
 // mock 请求方法
 
 // 定义params数据结构
@@ -89,4 +87,13 @@ export function pagination(arr, page, pageSize) {}
 //   pageSize: Number,
 // }
 
-export async function getSnacks(data, params) {}
+export async function getSnacks(data, params) {
+  const {
+    name: filterName,
+    type: filterType,
+    onSell: filterOnSell,
+    page = 1,
+    pageSize = 10,
+  } = params;
+  // return pagination(data.filter(()), page, pageSize);
+}
