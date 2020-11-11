@@ -87,13 +87,23 @@ export function generateDataset(count = 20) {
 //   pageSize: Number,
 // }
 
+export const DATASET = generateDataset();
+
 export async function getSnacks(data, params) {
   const {
-    name: filterName,
+    name: filterName = "",
     type: filterType,
     onSell: filterOnSell,
     page = 1,
     pageSize = 10,
   } = params;
-  // return pagination(data.filter(()), page, pageSize);
+
+  return pagination(
+    data
+      .filter(({ name }) => name.includes(filterName))
+      .filter(({ type }) => _.isNil(filterType) || type.value === filterType)
+      .filter(({ onSell }) => _.isNil(filterOnSell) || onSell === filterOnSell),
+    page,
+    pageSize
+  );
 }
